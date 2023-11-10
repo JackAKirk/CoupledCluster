@@ -2710,10 +2710,10 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
   //
   if(idx_h3 < energy_rng_h3 && idx_h2 < energy_rng_h2 && idx_p6 < energy_rng_p6 &&
      idx_h1 < energy_rng_h1) {
-#pragma unroll 4
-    for(int i = 0; i < 4; i++) {
-#pragma unroll 4
-      for(int j = 0; j < 4; j++) {
+#pragma unroll FUSION_SIZE_SLICE_1_P5
+    for(int i = 0; i < FUSION_SIZE_SLICE_1_P5; i++) {
+#pragma unroll FUSION_SIZE_SLICE_1_P4
+      for(int j = 0; j < FUSION_SIZE_SLICE_1_P4; j++) {
         if(i < energy_rng_p5 && j < energy_rng_p4) {
           //
           T inner_factor = partial_inner_factor - dev_evl_sorted_p5b[i + (energy_str_blk_idx_p5)] -
