@@ -179,9 +179,9 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 
   int base_size_h7b, base_size_p7b;
 
-  #pragma unroll 4
+#pragma unroll 4
   for(int i = 0; i < 4; i++)
-  #pragma unroll 4
+#pragma unroll 4
     for(int j = 0; j < 4; j++) {
       reg_tile[i][j]    = 0.0;
       reg_singles[i][j] = 0.0;
@@ -320,7 +320,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h3 + (idx_h2) *FUSION_SIZE_SLICE_2_H3 + 32];
           temp_bv[3] = sm_b[ll][idx_h3 + (idx_h2) *FUSION_SIZE_SLICE_2_H3 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h1) *FUSION_SIZE_SLICE_1_P6 + (xx * 16)];
 
@@ -389,7 +389,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h3 + (idx_h1) *FUSION_SIZE_SLICE_2_H3 + 32];
           temp_bv[3] = sm_b[ll][idx_h3 + (idx_h1) *FUSION_SIZE_SLICE_2_H3 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h2) *FUSION_SIZE_SLICE_2_P4 + (xx * 16)];
 
@@ -457,7 +457,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h2 + (idx_h1) *FUSION_SIZE_SLICE_2_H2 + 32];
           temp_bv[3] = sm_b[ll][idx_h2 + (idx_h1) *FUSION_SIZE_SLICE_2_H2 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h3) *FUSION_SIZE_SLICE_2_P4 + (xx * 16)];
 
@@ -600,7 +600,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h1 + (idx_h2) *FUSION_SIZE_SLICE_2_H1 + 32];
           temp_bv[3] = sm_a[ll][idx_h1 + (idx_h2) *FUSION_SIZE_SLICE_2_H1 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h3 + (idx_p6) *FUSION_SIZE_SLICE_2_H3 + (xx * 16)];
 
@@ -675,7 +675,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h2 + (idx_h3) *FUSION_SIZE_SLICE_2_H2 + 32];
           temp_bv[3] = sm_a[ll][idx_h2 + (idx_h3) *FUSION_SIZE_SLICE_2_H2 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h1 + (idx_p6) *FUSION_SIZE_SLICE_2_H1 + (xx * 16)];
 
@@ -750,7 +750,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h1 + (idx_h3) *FUSION_SIZE_SLICE_2_H1 + 32];
           temp_bv[3] = sm_a[ll][idx_h1 + (idx_h3) *FUSION_SIZE_SLICE_2_H1 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h2 + (idx_p6) *FUSION_SIZE_SLICE_2_H2 + (xx * 16)];
 
@@ -1105,7 +1105,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h3 + (idx_h2) *FUSION_SIZE_SLICE_1_H3 + 32];
           temp_bv[3] = sm_b[ll][idx_h3 + (idx_h2) *FUSION_SIZE_SLICE_1_H3 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h1) *FUSION_SIZE_SLICE_1_P6 + (xx * 16)];
 
@@ -1175,7 +1175,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h3 + (idx_h1) *FUSION_SIZE_SLICE_1_H3 + 32];
           temp_bv[3] = sm_b[ll][idx_h3 + (idx_h1) *FUSION_SIZE_SLICE_1_H3 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h2) *FUSION_SIZE_SLICE_1_P6 + (xx * 16)];
 
@@ -1245,7 +1245,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h2 + (idx_h1) *FUSION_SIZE_SLICE_1_H2 + 32];
           temp_bv[3] = sm_b[ll][idx_h2 + (idx_h1) *FUSION_SIZE_SLICE_1_H2 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_p6 + (idx_h3) *FUSION_SIZE_SLICE_1_P6 + (xx * 16)];
 
@@ -1314,7 +1314,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_p6 + (idx_h1) *FUSION_SIZE_SLICE_1_P6 + 32];
           temp_bv[3] = sm_a[ll][idx_p6 + (idx_h1) *FUSION_SIZE_SLICE_1_P6 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h3 + (idx_h2) *FUSION_SIZE_SLICE_1_H3 + (xx * 16)];
 
@@ -1383,7 +1383,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_p6 + (idx_h2) *FUSION_SIZE_SLICE_1_P6 + 32];
           temp_bv[3] = sm_a[ll][idx_p6 + (idx_h2) *FUSION_SIZE_SLICE_1_P6 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h3 + (idx_h1) *FUSION_SIZE_SLICE_1_H3 + (xx * 16)];
 
@@ -1452,7 +1452,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_p6 + (idx_h3) *FUSION_SIZE_SLICE_1_P6 + 32];
           temp_bv[3] = sm_a[ll][idx_p6 + (idx_h3) *FUSION_SIZE_SLICE_1_P6 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h2 + (idx_h1) *FUSION_SIZE_SLICE_1_H2 + (xx * 16)];
 
@@ -1594,7 +1594,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h1 + (idx_h2) *FUSION_SIZE_SLICE_1_H1 + 32];
           temp_bv[3] = sm_a[ll][idx_h1 + (idx_h2) *FUSION_SIZE_SLICE_1_H1 + 48];
 
-         #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h3 + (idx_p6) *FUSION_SIZE_SLICE_1_H3 + (xx * 16)];
 
@@ -1664,7 +1664,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h2 + (idx_h3) *FUSION_SIZE_SLICE_1_H2 + 32];
           temp_bv[3] = sm_a[ll][idx_h2 + (idx_h3) *FUSION_SIZE_SLICE_1_H2 + 48];
 
-	  #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h1 + (idx_p6) *FUSION_SIZE_SLICE_1_H1 + (xx * 16)];
 
@@ -1734,7 +1734,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_a[ll][idx_h1 + (idx_h3) *FUSION_SIZE_SLICE_1_H1 + 32];
           temp_bv[3] = sm_a[ll][idx_h1 + (idx_h3) *FUSION_SIZE_SLICE_1_H1 + 48];
 
-	  #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_b[ll][idx_h2 + (idx_p6) *FUSION_SIZE_SLICE_1_H2 + (xx * 16)];
 
@@ -1804,7 +1804,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h3 + (idx_p6) *FUSION_SIZE_SLICE_1_H1 + 32];
           temp_bv[3] = sm_b[ll][idx_h3 + (idx_p6) *FUSION_SIZE_SLICE_1_H1 + 48];
 
-	  #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_h1 + (idx_h2) *FUSION_SIZE_SLICE_1_H1 + (xx * 16)];
 
@@ -1874,7 +1874,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h1 + (idx_p6) *FUSION_SIZE_SLICE_1_H1 + 32];
           temp_bv[3] = sm_b[ll][idx_h1 + (idx_p6) *FUSION_SIZE_SLICE_1_H1 + 48];
 
-	  #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) {
             temp_av = sm_a[ll][idx_h2 + (idx_h3) *FUSION_SIZE_SLICE_1_H2 + (xx * 16)];
 
@@ -1944,7 +1944,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
           temp_bv[2] = sm_b[ll][idx_h2 + (idx_p6) *FUSION_SIZE_SLICE_1_H2 + 32];
           temp_bv[3] = sm_b[ll][idx_h2 + (idx_p6) *FUSION_SIZE_SLICE_1_H2 + 48];
 
-	  #pragma unroll 4
+#pragma unroll 4
           for(int xx = 0; xx < 4; xx++) // 4 -> rng_p4: Local Transactions...
           {
             temp_av = sm_a[ll][idx_h1 + (idx_h3) *FUSION_SIZE_SLICE_1_H1 + (xx * 16)];
@@ -2710,9 +2710,9 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
   //
   if(idx_h3 < energy_rng_h3 && idx_h2 < energy_rng_h2 && idx_p6 < energy_rng_p6 &&
      idx_h1 < energy_rng_h1) {
-    #pragma unroll 4
+#pragma unroll 4
     for(int i = 0; i < 4; i++) {
-    #pragma unroll 4
+#pragma unroll 4
       for(int j = 0; j < 4; j++) {
         if(i < energy_rng_p5 && j < energy_rng_p4) {
           //
@@ -2757,7 +2757,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
   // we expect 32 on NVIDIA, 64 on HPC AMD, 32 on AMD Navi.
   // no idea about Intel
   int sgsize = sg.get_local_range()[0];
-  for(int offset = sgsize/2; offset > 0; offset /= 2) {
+  for(int offset = sgsize / 2; offset > 0; offset /= 2) {
     energy_1 += sycl::shift_group_left(sg, energy_1, offset);
     energy_2 += sycl::shift_group_left(sg, energy_2, offset);
   }
