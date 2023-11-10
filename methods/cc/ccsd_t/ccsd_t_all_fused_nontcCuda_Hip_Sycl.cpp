@@ -309,7 +309,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -333,7 +333,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -378,7 +378,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -402,7 +402,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -446,7 +446,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -470,7 +470,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -589,7 +589,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -613,7 +613,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -664,7 +664,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -688,7 +688,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -739,7 +739,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -763,7 +763,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -822,7 +822,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
     __syncthreads();
 #else
-    item.barrier(sycl::access::fence_space::local_space);
+    sycl::group_barrier(thread_block);
 #endif
 
     if(threadIdx_y < 4) // 0, 1, 2, 3
@@ -873,7 +873,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
     __syncthreads();
 #else
-    item.barrier(sycl::access::fence_space::local_space);
+    sycl::group_barrier(thread_block);
 #endif
 
     if(threadIdx_y >= 8 && threadIdx_y < 12) // 8, 9, 10, 11
@@ -924,7 +924,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
     __syncthreads();
 #else
-    item.barrier(sycl::access::fence_space::local_space);
+    sycl::group_barrier(thread_block);
 #endif
 
     if(threadIdx_y >= 8 && threadIdx_y < 12) // 8, 9, 10, 11
@@ -975,7 +975,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
     __syncthreads();
 #else
-    item.barrier(sycl::access::fence_space::local_space);
+    sycl::group_barrier(thread_block);
 #endif
   }
   //
@@ -1094,7 +1094,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1118,7 +1118,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1164,7 +1164,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1188,7 +1188,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1234,7 +1234,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1258,7 +1258,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1303,7 +1303,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1327,7 +1327,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1372,7 +1372,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1396,7 +1396,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1441,7 +1441,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: -1
@@ -1465,7 +1465,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1583,7 +1583,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1607,7 +1607,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1653,7 +1653,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1677,7 +1677,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1723,7 +1723,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1747,7 +1747,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1793,7 +1793,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1817,7 +1817,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1863,7 +1863,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1887,7 +1887,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -1933,7 +1933,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
 
         // Cross-Product: 16
@@ -1958,7 +1958,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
         __syncthreads();
 #else
-        item.barrier(sycl::access::fence_space::local_space);
+        sycl::group_barrier(thread_block);
 #endif
       }
     }
@@ -2060,7 +2060,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4"
@@ -2101,7 +2101,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2129,7 +2129,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4"
@@ -2170,7 +2170,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2198,7 +2198,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4"
@@ -2239,7 +2239,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2265,7 +2265,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p5"
@@ -2306,7 +2306,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2334,7 +2334,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p5"
@@ -2375,7 +2375,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2403,7 +2403,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p5"
@@ -2444,7 +2444,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2472,7 +2472,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4" x "p5"
@@ -2530,7 +2530,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2558,7 +2558,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4" x "p5"
@@ -2616,7 +2616,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
 
@@ -2644,7 +2644,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
 
       //  "p4" x "p5"
@@ -2702,7 +2702,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
       __syncthreads();
 #else
-      item.barrier(sycl::access::fence_space::local_space);
+      sycl::group_barrier(thread_block);
 #endif
     }
   }
@@ -2729,7 +2729,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 #ifndef USE_DPCPP
   __syncthreads();
 #else
-  item.barrier(sycl::access::fence_space::local_space);
+  sycl::group_barrier(thread_block);
 #endif
 
 //
@@ -2765,7 +2765,7 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
     sm_a[0][threadIdx_y / 2] = energy_1;
     sm_b[0][threadIdx_y / 2] = energy_2;
   }
-  item.barrier(sycl::access::fence_space::local_space);
+  sycl::group_barrier(thread_block);
 #endif
 
   //
