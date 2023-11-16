@@ -2760,8 +2760,8 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
 
   //
   if(threadIdx_x == 0 && threadIdx_y == 0) {
-      T final_energy_1 = 0.0;
-      T final_energy_2 = 0.0;
+    T final_energy_1 = 0.0;
+    T final_energy_2 = 0.0;
 #if defined(USE_CUDA)
     for(int i = 0; i < 8; i++) {
       final_energy_1 += sm_a[0][i];
