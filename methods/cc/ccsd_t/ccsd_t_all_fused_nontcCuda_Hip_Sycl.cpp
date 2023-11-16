@@ -2753,31 +2753,21 @@ __global__ void revised_jk_ccsd_t_fully_fused_kernel(
   sm_b[threadIdx_y][threadIdx_x] = energy_2;
   __syncthreads();
 #else // USE_DPCPP
-  sycl::sub_group sg = item.get_sub_group();
-  // we expect 32 on NVIDIA, 64 on HPC AMD, 32 on AMD Navi.
-  // no idea about Intel
-  int sgsize = sg.get_local_range()[0];
-  for(int offset = sgsize / 2; offset > 0; offset /= 2) {
-    energy_1 += sycl::shift_group_left(sg, energy_1, offset);
-    energy_2 += sycl::shift_group_left(sg, energy_2, offset);
-  }
-  if(threadIdx_x == 0 && threadIdx_y % 2 == 0) {
-    sm_a[0][threadIdx_y / 2] = energy_1;
-    sm_b[0][threadIdx_y / 2] = energy_2;
-  }
+  sm_a[threadIdx_y][threadIdx_x] = energy_1;
+  sm_b[threadIdx_y][threadIdx_x] = energy_2;
   sycl::group_barrier(thread_block);
 #endif
 
   //
-  T final_energy_1 = 0.0;
-  T final_energy_2 = 0.0;
   if(threadIdx_x == 0 && threadIdx_y == 0) {
-#if defined(USE_CUDA) || defined(USE_DPCPP)
+      T final_energy_1 = 0.0;
+      T final_energy_2 = 0.0;
+#if defined(USE_CUDA)
     for(int i = 0; i < 8; i++) {
       final_energy_1 += sm_a[0][i];
       final_energy_2 += sm_b[0][i];
     }
-#else // HIP
+#else // HIP || DPCPP
 #pragma unroll
     for(unsigned short j = 0; j < 16; j++) {
 #pragma unroll
